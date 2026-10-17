@@ -71,3 +71,30 @@
     50% { opacity: 0.7; transform: scale(1.05); }
   }
 }
+
+/* The Malayalam pages use fonts designed for the script instead of Latin fallbacks. */
+.lang-ml {
+  --font-serif: "Noto Serif Malayalam", "Nirmala UI", serif;
+  --font-sans: "Noto Sans Malayalam", "Nirmala UI", sans-serif;
+}
+
+.lang-ml :where(p, h1, h2, h3, button, a, blockquote, cite) {
+  line-height: 1.7;
+  letter-spacing: normal;
+}
+
+:focus-visible {
+  outline: 2px solid #8a6f1a;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

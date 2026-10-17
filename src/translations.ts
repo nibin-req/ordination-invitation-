@@ -29,6 +29,8 @@ export type TranslationSet = {
     churchName: string;
     churchAddr1: string;
     churchAddr2: string;
+    calendarBtn: string;
+    directionsBtn: string;
   };
   order: {
     label: string;
@@ -51,6 +53,7 @@ export type TranslationSet = {
     photoLabel: string;
     photoAddr: string;
     mapsBtn: string;
+    addressLine: string;
   };
   blessing: {
     label: string;
@@ -78,21 +81,23 @@ export const translations: Record<Language, TranslationSet> = {
       scrollHint: 'Scroll to explore',
     },
     card: {
-      label: 'The Ordination Of',
-      name: 'Rev. Dn. Noyal B Varghese',
-      scripture: '"You are a priest forever, according to the order of Melchizedek."',
-      scriptureRef: '— Psalm 110:4',
+      label: 'Ministerial Priesthood & First Holy Qurbana',
+      name: 'Dn. Noyal B Varghese',
+      scripture: '“Christ Jesus has made me his own.”',
+      scriptureRef: '— Philippians 3:12',
       message:
         'With hearts full of gratitude to the Almighty, the family of Mr. & Mrs. Baby Varghese joyfully invites you to share in the sacred celebration as their son is ordained into the holy priesthood.',
       dateLabel: 'Date',
       dateValue: 'December 30',
       dateSub: '2026 · Wednesday',
       timeLabel: 'Time',
-      timeValue: '9:00 AM',
+      timeValue: '3:00 PM',
       timeSub: 'Holy Qurbana',
-      churchName: 'St. Joseph Syro Malabar Church',
-      churchAddr1: 'Punnakunnam, Alappuzha',
-      churchAddr2: 'Kerala 688504, India',
+      churchName: "St. Joseph's Church",
+      churchAddr1: 'Punnakunnathussery',
+      churchAddr2: 'Kerala, India',
+      calendarBtn: 'Add to Calendar',
+      directionsBtn: 'Get Directions',
     },
     order: {
       label: 'Order of the Day',
@@ -132,50 +137,53 @@ export const translations: Record<Language, TranslationSet> = {
     },
     church: {
       label: 'The Church',
-      title: 'St. Joseph Syro Malabar Church',
-      photoLabel: 'St. Joseph Syro Malabar Church',
-      photoAddr: 'Punnakunnam, Alappuzha · Kerala 688504',
+      title: "St. Joseph's Church",
+      photoLabel: "St. Joseph's Church",
+      photoAddr: 'Punnakunnathussery · Kerala, India',
       mapsBtn: 'Open in Google Maps',
+      addressLine: "St. Joseph's Church, Punnakunnathussery, Kerala, India",
     },
     blessing: {
       label: 'A Blessing',
       text: '"The Lord bless you and keep you; the Lord make His face shine upon you, and be gracious to you; the Lord lift up His countenance upon you, and give you peace."',
       ref: '— Numbers 6:24–26',
       closing: 'With love and prayers,',
-      family: 'The Thanniyath Family',
+      family: 'The Thanniyath & Mulappancheril Family',
       parish: "& the Parish of St. Joseph's",
       soliDeo: 'Soli Deo Gloria',
     },
     toggle: {
       en: 'EN',
-      ml: 'ML',
+      ml: 'മലയാളം',
     },
   },
   ml: {
     hero: {
-      eyebrow: 'അത്യുന്നതമായ ആനന്ദത്തോടെ',
-      titleTop: 'നിങ്ങളെ സ്നേഹപൂർവ്വം',
+      eyebrow: 'സന്തോഷപൂർവ്വം',
+      titleTop: 'സ്നേഹപൂർവ്വം',
       titleBottom: 'ക്ഷണിക്കുന്നു',
       subtitle:
-        'ദൈവിക വിളിക്കുത്തരം നൽകി ജീവിതകാലം മുഴുവൻ ശുശ്രൂഷയ്ക്കായി സമർപ്പിക്കുന്ന പ്രിയപ്പെട്ട ശെമ്മാശന്റെ പൗരോഹിത്യ സ്വീകരണ ശുശ്രൂഷയിലേക്ക് ക്ഷണിക്കുന്നു.',
+        'ദൈവവിളിക്ക് പൂർണമായി സമർപ്പിച്ച് പൗരോഹിത്യ ശുശ്രൂഷയിലേക്ക് പ്രവേശിക്കുന്ന പ്രിയപ്പെട്ട ഡീക്കന്റെ തിരുപ്പട്ട സ്വീകരണത്തിൽ പങ്കെടുക്കാൻ നിങ്ങളെ സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു.',
       scrollHint: 'താഴേക്ക് സ്ക്രോൾ ചെയ്യുക',
     },
     card: {
-      label: 'പൗരോഹിത്യ സ്വീകരണം',
-      name: 'റവ. ഡീക്കൻ നോയൽ ബി വർഗീസ്',
-      scripture: '"നീ എന്നേക്കും പുരോഹിതനാകുന്നു, മെൽക്കീസെദെക്കിന്റെ ക്രമപ്രകാരം."',
-      scriptureRef: '— സങ്കീർത്തനങ്ങൾ 110:4',
+      label: 'പൗരോഹിത്യ സ്വീകരണവും പ്രഥമ വിശുദ്ധ കുർബാനയും',
+      name: 'ഡീക്കൻ നോയൽ ബി വർഗീസ്',
+      scripture: '“ക്രിസ്തുയേശു എന്നെ സ്വന്തമാക്കിയിരിക്കുന്നു.”',
+      scriptureRef: '— ഫിലിപ്പിയർ 3:12',
       message:
-        'സർവ്വശക്തനായ ദൈവത്തിന് കൃതജ്ഞത അർപ്പിച്ചുകൊണ്ട്, തങ്ങളുടെ മകൻ വിശുദ്ധ പൗരോഹിത്യത്തിലേക്ക് പ്രവേശിക്കുന്ന വിശുദ്ധ ആഘോഷത്തിൽ പങ്കുചേരാൻ ശ്രീ. ബേബി വർഗീസിന്റെയും കുടുംബത്തിന്റെയും നാമത്തിൽ നിങ്ങളെ സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു.',
+        'സർവശക്തനായ ദൈവത്തിന് നന്ദിയർപ്പിച്ചുകൊണ്ട്, തങ്ങളുടെ മകൻ തിരുപ്പട്ടം സ്വീകരിക്കുന്ന ഈ വിശുദ്ധ കർമ്മത്തിൽ പങ്കുചേരാൻ ശ്രീ. ബേബി വർഗീസും കുടുംബവും നിങ്ങളെ സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു.',
       dateLabel: 'തീയതി',
       dateValue: 'ഡിസംബർ 30',
       dateSub: '2026 · ബുധനാഴ്ച',
       timeLabel: 'സമയം',
-      timeValue: '9:00 AM',
+      timeValue: '3:00 PM',
       timeSub: 'വിശുദ്ധ കുർബാന',
-      churchName: 'സെന്റ് ജോസഫ് സിറോ മലബാർ ചർച്ച്',
-      churchAddr1: 'പുന്നക്കുന്നം, ആലപ്പുഴ',
-      churchAddr2: 'കേരളം 688504, ഇന്ത്യ',
+      churchName: 'സെന്റ് ജോസഫ് പള്ളി',
+      churchAddr1: 'പുന്നക്കുന്നത്തുശ്ശേരി',
+      churchAddr2: 'കേരളം, ഇന്ത്യ',
+      calendarBtn: 'കലണ്ടറിൽ ചേർക്കുക',
+      directionsBtn: 'വഴി കണ്ടെത്തുക',
     },
     order: {
       label: 'പരിപാടിക്രമം',
@@ -188,13 +196,13 @@ export const translations: Record<Language, TranslationSet> = {
         },
         {
           time: '3:00 PM',
-          title: 'വിശുദ്ധ കുർബാനയും അഭിഷേകവും',
-          desc: 'പിതാവിന്റെ മുഖ്യകാർമ്മികത്വത്തിൽ വിശുദ്ധ കുർബാനയർപ്പിച്ച് അഭിഷേക ചടങ്ങ് നിർവഹിക്കുന്നു.',
+          title: 'വിശുദ്ധ കുർബാനയും തിരുപ്പട്ട സ്വീകരണവും',
+          desc: 'അഭിവന്ദ്യ മെത്രാപ്പോലീത്തയുടെ മുഖ്യകാർമ്മികത്വത്തിൽ വിശുദ്ധ കുർബാനയും തിരുപ്പട്ട ശുശ്രൂഷയും നടക്കും.',
         },
         {
           time: '5:30 PM',
-          title: 'ആദ്യത്തെ അനുഗ്രഹം',
-          desc: 'പുതുതായി അഭിഷിക്തനായ വൈദികൻ പ്രഥമ ആശീർവാദം നൽകുന്നു.',
+          title: 'പ്രഥമ ആശീർവാദം',
+          desc: 'പുതുതായി തിരുപ്പട്ടം സ്വീകരിച്ച വൈദികൻ വിശ്വാസികൾക്ക് പ്രഥമ ആശീർവാദം നൽകും.',
         },
         {
           time: '6:00 PM',
@@ -204,9 +212,9 @@ export const translations: Record<Language, TranslationSet> = {
       ],
     },
     countdown: {
-      label: 'എണ്ണിക്കൊണ്ടിരിക്കുന്നു',
+      label: 'ദിവസത്തിലേക്ക് ഇനി',
       title: 'വിശുദ്ധ ദിനം',
-      subtitle: 'ഓരോ നിമിഷവും ആഘോഷത്തിലേക്ക് നമ്മെ അടുപ്പിക്കുന്നു',
+      subtitle: 'ഓരോ നിമിഷവും ഈ അനുഗ്രഹീത ദിനത്തിലേക്ക് നമ്മെ അടുപ്പിക്കുന്നു',
       days: 'ദിവസം',
       hours: 'മണിക്കൂർ',
       minutes: 'മിനിറ്റ്',
@@ -215,23 +223,24 @@ export const translations: Record<Language, TranslationSet> = {
     },
     church: {
       label: 'ദേവാലയം',
-      title: 'സെന്റ് ജോസഫ് സിറോ മലബാർ ചർച്ച്',
-      photoLabel: 'സെന്റ് ജോസഫ് സിറോ മലബാർ ചർച്ച്',
-      photoAddr: 'പുന്നക്കുന്നം, ആലപ്പുഴ · കേരളം 688504',
+      title: 'സെന്റ് ജോസഫ് പള്ളി',
+      photoLabel: 'സെന്റ് ജോസഫ് പള്ളി',
+      photoAddr: 'പുന്നക്കുന്നത്തുശ്ശേരി · കേരളം, ഇന്ത്യ',
       mapsBtn: 'ഗൂഗിൾ മാപ്പിൽ തുറക്കുക',
+      addressLine: 'സെന്റ് ജോസഫ് പള്ളി, പുന്നക്കുന്നത്തുശ്ശേരി, കേരളം, ഇന്ത്യ',
     },
     blessing: {
       label: 'ആശീർവാദം',
       text: '"കർത്താവ് നിന്നെ അനുഗ്രഹിക്കട്ടെ, നിന്നെ കാത്തുസൂക്ഷിക്കട്ടെ; കർത്താവ് തന്റെ മുഖം നിന്നിൽ പ്രകാശിപ്പിക്കട്ടെ, നിന്നോട് കൃപ കാണിക്കട്ടെ; കർത്താവ് തന്റെ മുഖം നിന്നിലേക്ക് തിരിക്കട്ടെ, നിനക്ക് സമാധാനം നൽകട്ടെ."',
       ref: '— സംഖ്യാപുസ്തകം 6:24–26',
       closing: 'സ്നേഹത്തോടും പ്രാർത്ഥനയോടും കൂടെ,',
-      family: 'തന്നിയത്ത് കുടുംബം',
+      family: 'തന്നിയത്ത് & മുളപ്പഞ്ചേരിൽ കുടുംബം',
       parish: 'സെന്റ് ജോസഫ് ഇടവക സമൂഹവും',
       soliDeo: 'ദൈവത്തിന് മാത്രം മഹത്വം',
     },
     toggle: {
       en: 'EN',
-      ml: 'ML',
+      ml: 'മലയാളം',
     },
   },
 };
