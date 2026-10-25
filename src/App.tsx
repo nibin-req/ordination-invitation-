@@ -1,9 +1,9 @@
 
 
 import { useCountdown } from "./hooks/useCountdown";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CalendarDays, MapPin } from "lucide-react";
-import { translations, type Language } from "./translations";
+import { translations } from "./translations";
 import portraitUrl from "./images/portrait.webp";
 import churchUrl from "./images/church.jpg";
 import candlesUrl from "./images/candles.jpg";
@@ -51,51 +51,20 @@ function YouTubeMark({ className = "" }: { className?: string }) {
 }
 
 function App() {
-  const [lang, setLang] = useState<Language>("en");
   const [streamNotice, setStreamNotice] = useState<"notStarted" | "linkPending" | null>(null);
-  const t = translations[lang];
+  const t = translations.en;
   const { days, hours, minutes, seconds } = useCountdown(ORDINATION_DATE);
   const streamTimeReached = days === 0 && hours === 0 && minutes === 0 && seconds === 0;
   const streamReady = streamTimeReached && Boolean(YOUTUBE_LIVE_URL);
 
-  useEffect(() => {
-    document.documentElement.lang = lang === "ml" ? "ml" : "en";
-  }, [lang]);
-
   return (
-    <div lang={lang === "ml" ? "ml" : "en"} className={`relative isolate min-h-screen bg-transparent font-sans text-ink-800 overflow-x-hidden ${lang === "ml" ? "lang-ml" : ""}`}>
+    <div lang="en" className="relative isolate min-h-screen bg-transparent font-sans text-ink-800 overflow-x-hidden">
       <div
         aria-hidden="true"
         className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center"
         style={{ backgroundImage: `url(${SHEPHERD_BACKGROUND_URL})` }}
       />
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-cream-100/50" />
-      {/* Language Switcher Bar */}
-      <div className="fixed top-3 right-3 sm:top-5 sm:right-5 z-50 flex gap-1 bg-ivory-50/95 backdrop-blur-md p-1.5 rounded-full border border-gold-400/30 shadow-md" role="group" aria-label={lang === "ml" ? "ഭാഷ തിരഞ്ഞെടുക്കുക" : "Choose language"}>
-        <button
-          onClick={() => setLang("en")}
-          aria-pressed={lang === "en"}
-          className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-            lang === "en"
-              ? "bg-gold-500 text-ink-900 shadow-sm"
-              : "text-ink-700 hover:text-ink-900"
-          }`}
-        >
-          {t.toggle.en}
-        </button>
-        <button
-          onClick={() => setLang("ml")}
-          aria-pressed={lang === "ml"}
-          className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-            lang === "ml"
-              ? "bg-gold-500 text-ink-900 shadow-sm"
-              : "text-ink-700 hover:text-ink-900"
-          }`}
-        >
-          {t.toggle.ml}
-        </button>
-      </div>
-
       {/* ───────────── HERO ───────────── */}
       <header className="relative flex min-h-[min(900px,100svh)] items-center justify-center overflow-hidden px-4 py-24 sm:py-28">
         <div
@@ -139,7 +108,7 @@ function App() {
             <div className="grid lg:grid-cols-[0.82fr_1.18fr]">
               <div className="relative px-5 pt-7 sm:px-9 sm:pt-9 lg:p-10 flex items-center">
                 <div className="w-full max-w-sm mx-auto aspect-[4/5] rounded-2xl overflow-hidden border-2 border-gold-400 shadow-lg">
-                  <img src={PORTRAIT_URL} alt={lang === "ml" ? "ഡീക്കൻ വർഗീസ് (നോയൽ) തന്നിയത്ത്" : "Dn. Varghese (Noyal) Thanniyath, the ordinand"} className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
+                  <img src={PORTRAIT_URL} alt="Dn. Varghese (Noyal) Thanniyath, the ordinand" className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
                 </div>
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 h-24 w-24 rounded-full bg-amber-200/40 blur-2xl" />
               </div>
