@@ -9,14 +9,18 @@ import churchUrl from "./images/church.jpg";
 import candlesUrl from "./images/candles.jpg";
 import raysUrl from "./images/rays.jpg";
 import sleevaUrl from "./images/sleeva.svg";
+import shepherdBackgroundUrl from "./images/shepherd-background.webp";
 
 const PORTRAIT_URL = portraitUrl;
 const CHURCH_URL = churchUrl;
 const CANDLES_URL = candlesUrl;
 const RAYS_URL = raysUrl;
 const NEW_EMBLEM_URL = sleevaUrl;
-const ORDINATION_DATE = "2026-12-30T15:00:00+05:30";
-const CALENDAR_URL = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Priestly%20Ordination%20of%20Dn.%20Noyal%20B%20Varghese&dates=20261230T093000Z%2F20261230T123000Z&ctz=Asia%2FKolkata&location=St.%20Joseph%27s%20Church%2C%20Punnakunnathussery%2C%20Kerala%2C%20India&details=Priestly%20ordination%20celebration";
+const SHEPHERD_BACKGROUND_URL = shepherdBackgroundUrl;
+const ORDINATION_DATE = "2026-12-30T14:15:00+05:30";
+// Add the scheduled YouTube live URL here once it is provided.
+const YOUTUBE_LIVE_URL = "";
+const CALENDAR_URL = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Priestly%20Ordination%20of%20Dn.%20Varghese%20(Noyal)%20Thanniyath&dates=20261230T084500Z%2F20261230T113000Z&ctz=Asia%2FKolkata&location=St.%20Joseph%27s%20Church%2C%20Punnakunnathussery%2C%20Kerala%2C%20India&details=Priestly%20Ordination%20Ceremony%20and%20First%20Holy%20Qurbana";
 
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=St.+Joseph%27s+Church%2C+Punnakunnathussery%2C+Kerala%2C+India";
@@ -37,17 +41,35 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+function YouTubeMark({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 34" aria-hidden="true" className={className}>
+      <rect x="1" y="1" width="46" height="32" rx="9" fill="#FF0033" />
+      <path d="M20 9.5 33 17 20 24.5z" fill="white" />
+    </svg>
+  );
+}
+
 function App() {
   const [lang, setLang] = useState<Language>("en");
+  const [streamNotice, setStreamNotice] = useState<"notStarted" | "linkPending" | null>(null);
   const t = translations[lang];
   const { days, hours, minutes, seconds } = useCountdown(ORDINATION_DATE);
+  const streamTimeReached = days === 0 && hours === 0 && minutes === 0 && seconds === 0;
+  const streamReady = streamTimeReached && Boolean(YOUTUBE_LIVE_URL);
 
   useEffect(() => {
     document.documentElement.lang = lang === "ml" ? "ml" : "en";
   }, [lang]);
 
   return (
-    <div lang={lang === "ml" ? "ml" : "en"} className={`min-h-screen bg-cream-100 font-sans text-ink-800 overflow-x-hidden ${lang === "ml" ? "lang-ml" : ""}`}>
+    <div lang={lang === "ml" ? "ml" : "en"} className={`relative isolate min-h-screen bg-transparent font-sans text-ink-800 overflow-x-hidden ${lang === "ml" ? "lang-ml" : ""}`}>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center"
+        style={{ backgroundImage: `url(${SHEPHERD_BACKGROUND_URL})` }}
+      />
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 bg-cream-100/50" />
       {/* Language Switcher Bar */}
       <div className="fixed top-3 right-3 sm:top-5 sm:right-5 z-50 flex gap-1 bg-ivory-50/95 backdrop-blur-md p-1.5 rounded-full border border-gold-400/30 shadow-md" role="group" aria-label={lang === "ml" ? "ഭാഷ തിരഞ്ഞെടുക്കുക" : "Choose language"}>
         <button
@@ -109,7 +131,7 @@ function App() {
       </header>
 
       {/* ───────────── INVITATION CARD ───────────── */}
-      <section id="event-details" className="relative scroll-mt-8 bg-ivory-100 px-4 py-14 sm:px-6 sm:py-24">
+      <section id="event-details" className="relative scroll-mt-8 bg-ivory-100/65 px-4 py-14 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="relative rounded-2xl sm:rounded-3xl bg-ivory-50 shadow-2xl shadow-amber-900/10 overflow-hidden animate-fade-in-up">
             <div className="h-1.5 bg-gradient-to-r from-gold-600/45 via-amber-300/60 to-gold-600/45" />
@@ -117,7 +139,7 @@ function App() {
             <div className="grid lg:grid-cols-[0.82fr_1.18fr]">
               <div className="relative px-5 pt-7 sm:px-9 sm:pt-9 lg:p-10 flex items-center">
                 <div className="w-full max-w-sm mx-auto aspect-[4/5] rounded-2xl overflow-hidden border-2 border-gold-400 shadow-lg">
-                  <img src={PORTRAIT_URL} alt={lang === "ml" ? "പൗരോഹിത്യ സ്വീകരണം നടത്തുന്ന ഡീക്കൻ നോയൽ ബി വർഗീസ്" : "Dn. Noyal B Varghese, the ordinand"} className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
+                  <img src={PORTRAIT_URL} alt={lang === "ml" ? "ഡീക്കൻ വർഗീസ് (നോയൽ) തന്നിയത്ത്" : "Dn. Varghese (Noyal) Thanniyath, the ordinand"} className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
                 </div>
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 h-24 w-24 rounded-full bg-amber-200/40 blur-2xl" />
               </div>
@@ -136,9 +158,24 @@ function App() {
                   {t.card.scriptureRef}
                 </cite>
 
+                <p className="mx-auto mb-2 max-w-2xl font-serif text-lg font-semibold text-ink-900">
+                  {t.card.messageTitle}
+                </p>
                 <p className="mx-auto max-w-2xl font-sans text-base text-ink-700 leading-relaxed">
                   {t.card.message}
                 </p>
+
+                <div className="mx-auto mt-5 grid max-w-2xl grid-cols-2 gap-3 border-t border-gold-400/30 pt-5 text-left text-ink-900">
+                  <div>
+                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">Dn. Varghese (Noyal) Thanniyath</p>
+                    <a className="mt-1 inline-block font-sans text-xs font-medium text-ink-700 underline decoration-gold-600 underline-offset-4 sm:text-sm" href="tel:+918281515625">+91 82815 15625</a>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">Baby &amp; Mini</p>
+                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">Nibin &amp; Nimmy</p>
+                    <a className="mt-1 inline-block font-sans text-xs font-medium text-ink-700 underline decoration-gold-600 underline-offset-4 sm:text-sm" href="tel:+919496153248">+91 94961 53248</a>
+                  </div>
+                </div>
               </div>
 
               {/* Date & Time tiles */}
@@ -161,9 +198,6 @@ function App() {
                   <p className="font-serif text-lg font-semibold text-ink-900">
                     {t.card.timeValue}
                   </p>
-                  <p className="text-xs font-sans text-ink-700">
-                    {t.card.timeSub}
-                  </p>
                 </div>
               </div>
 
@@ -185,6 +219,7 @@ function App() {
                   {t.card.churchAddr2}
                 </p>
               </div>
+
             </div>
           </div>
           </div>
@@ -192,14 +227,14 @@ function App() {
       </section>
 
       {/* ───────────── ORDER OF THE DAY ───────────── */}
-      <section className="relative px-4 py-14 sm:px-6 sm:py-20 bg-cream-100">
+      <section className="relative px-4 py-14 sm:px-6 sm:py-20 bg-cream-100/60">
         <div className="mx-auto max-w-6xl text-center">
           <SectionLabel>{t.order.label}</SectionLabel>
           <h3 className="font-serif text-3xl font-semibold text-ink-900 mb-2">
             {t.order.title}
           </h3>
           <DoveOrnament />
-          <div className="relative mt-8 grid gap-4 text-left lg:grid-cols-4 lg:gap-5 lg:pt-8 before:absolute before:hidden lg:before:block lg:before:left-8 lg:before:right-8 lg:before:top-4 lg:before:h-px lg:before:bg-gold-400/50">
+          <div className="relative mt-8 grid gap-4 text-left lg:grid-cols-5 lg:gap-5 lg:pt-8 before:absolute before:hidden lg:before:block lg:before:left-8 lg:before:right-8 lg:before:top-4 lg:before:h-px lg:before:bg-gold-400/50">
             {t.order.items.map((item, i) => (
               <div
                 key={i}
@@ -214,9 +249,7 @@ function App() {
                   <p className="font-serif text-base font-semibold text-ink-900">
                     {item.title}
                   </p>
-                  <p className="mt-2 text-sm font-sans text-ink-700 leading-relaxed">
-                    {item.desc}
-                  </p>
+                  {item.desc && <p className="mt-2 text-sm font-sans text-ink-700 leading-relaxed">{item.desc}</p>}
                 </div>
               </div>
             ))}
@@ -225,7 +258,7 @@ function App() {
       </section>
 
       {/* ───────────── THE CHURCH ───────────── */}
-      <section className="relative px-4 py-14 sm:px-6 sm:py-20 bg-ivory-100">
+      <section className="relative px-4 py-14 sm:px-6 sm:py-20 bg-ivory-100/60">
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>{t.church.label}</SectionLabel>
           <h3 className="font-serif text-3xl font-semibold text-ink-900 mb-2">
@@ -311,8 +344,73 @@ function App() {
         </div>
       </section>
 
+      {/* ───────────── YOUTUBE LIVESTREAM ───────────── */}
+      <section className="relative bg-cream-100/55 px-4 py-14 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid overflow-hidden rounded-3xl border border-gold-400/35 bg-ivory-50 shadow-xl shadow-amber-900/10 md:grid-cols-[0.82fr_1.18fr]">
+            <div className="flex flex-col items-center justify-center bg-gradient-to-br from-ink-900 via-ink-800 to-amber-900 px-6 py-8 text-center text-cream-100 sm:px-10 md:min-h-72">
+              <div className="mb-4 flex items-center gap-2.5">
+                <YouTubeMark className="h-8 w-11 drop-shadow-sm" />
+                <span className="font-sans text-sm font-semibold text-cream-100">
+                  {t.livestream.platformLabel}
+                </span>
+              </div>
+              <p className="font-sans text-xs font-medium uppercase tracking-[0.25em] text-gold-300">
+                {t.livestream.label}
+              </p>
+              <p className="mt-3 font-serif text-2xl font-semibold sm:text-3xl">
+                {t.card.dateValue}
+              </p>
+              <p className="mt-1 font-sans text-sm text-cream-200/80">
+                {t.card.dateSub} · {t.card.timeValue}
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center px-6 py-8 text-center sm:px-10 sm:py-10 md:items-start md:text-left">
+              <h3 className="font-serif text-2xl font-semibold text-ink-900 sm:text-3xl">
+                {t.livestream.title}
+              </h3>
+              <p className="mt-3 max-w-xl font-sans text-sm leading-relaxed text-ink-700 sm:text-base">
+                {t.livestream.description}
+              </p>
+
+              {streamReady ? (
+                <a
+                  href={YOUTUBE_LIVE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-red-700 px-6 py-3 font-sans text-sm font-semibold text-white shadow-md transition hover:bg-red-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-700 sm:w-auto"
+                >
+                  <YouTubeMark className="h-4 w-6" />
+                  {t.livestream.watchButton}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setStreamNotice(streamTimeReached ? "linkPending" : "notStarted")}
+                  className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-gold-600/40 bg-cream-100 px-6 py-3 font-sans text-sm font-semibold text-ink-900 transition hover:bg-cream-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-600 sm:w-auto"
+                >
+                  <YouTubeMark className="h-4 w-6" />
+                  {streamTimeReached
+                    ? t.livestream.linkPendingButton
+                    : t.livestream.upcomingButton}
+                </button>
+              )}
+
+              {streamNotice && (
+                <p className="mt-3 font-sans text-sm font-medium text-gold-700" role="status" aria-live="polite">
+                  {streamNotice === "notStarted"
+                    ? t.livestream.notStartedMessage
+                    : t.livestream.linkPendingMessage}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ───────────── CLOSING MESSAGE ───────────── */}
-      <footer className="relative px-4 py-16 sm:px-6 sm:py-24 bg-gradient-to-b from-cream-100 to-ivory-200">
+      <footer className="relative px-4 py-16 sm:px-6 sm:py-24 bg-gradient-to-b from-cream-100/70 to-ivory-200/70">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-sans text-sm text-ink-700 leading-relaxed">
             {t.blessing.closing}
@@ -320,10 +418,6 @@ function App() {
           <p className="mt-3 font-serif text-xl font-semibold text-ink-900">
             {t.blessing.family}
           </p>
-          <p className="mt-1 font-sans text-sm text-ink-700">
-            {t.blessing.parish}
-          </p>
-
           <div className="mt-12">
             <div className="mx-auto h-px w-24 bg-gold-400/40" />
             <p className="mt-6 text-[11px] font-sans uppercase tracking-[0.3em] text-ink-700/60">
