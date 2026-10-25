@@ -236,7 +236,7 @@ function App() {
           <DoveOrnament />
 
           <div className="mx-auto mt-8 grid max-w-5xl overflow-hidden rounded-3xl border border-gold-400/30 bg-ivory-50 text-left shadow-xl shadow-amber-900/10 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="aspect-[9/16] overflow-hidden bg-cream-200/70">
+            <div className="aspect-[2/3] overflow-hidden bg-cream-200/70">
               <img
                 src={CHURCH_URL}
                 alt={t.church.photoLabel}
