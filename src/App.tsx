@@ -107,7 +107,7 @@ function App() {
 
             <div className="grid lg:grid-cols-[0.82fr_1.18fr]">
               <div className="relative px-5 pt-7 sm:px-9 sm:pt-9 lg:p-10 flex items-center">
-                <div className="w-full max-w-sm mx-auto aspect-[5/6] rounded-2xl overflow-hidden border-2 border-gold-400 shadow-lg">
+                <div className="w-full max-w-sm mx-auto aspect-[6/7] rounded-2xl overflow-hidden border-2 border-gold-400 shadow-lg">
                   <img src={PORTRAIT_URL} alt="Dn. Varghese (Noyal) Thanniyath, the ordinand" className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
                 </div>
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 h-24 w-24 rounded-full bg-amber-200/40 blur-2xl" />
