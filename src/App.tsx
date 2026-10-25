@@ -5,7 +5,7 @@ import { useState } from "react";
 import { CalendarDays, MapPin } from "lucide-react";
 import { translations } from "./translations";
 import portraitUrl from "./images/portrait.webp";
-import churchUrl from "./images/church.jpg";
+import churchUrl from "./images/church.webp";
 import candlesUrl from "./images/candles.jpg";
 import raysUrl from "./images/rays.jpg";
 import sleevaUrl from "./images/sleeva.svg";
