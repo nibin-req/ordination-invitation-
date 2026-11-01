@@ -50,6 +50,40 @@ function YouTubeMark({ className = "" }: { className?: string }) {
   );
 }
 
+function formatInvitationMessage(message: string) {
+  const phrasesToEmphasize = [
+    "Deacon Varghese Thanniyath",
+    "Wednesday, December 30, 2026, at 2:15 PM",
+    "St Joseph's Church, Punnakunnathusserry",
+    "His Grace Cardinal George Koovakad",
+    "Priestly Ordination and First Holy Qurbana",
+  ];
+  const parts: React.ReactNode[] = [];
+  let cursor = 0;
+
+  while (cursor < message.length) {
+    const nextMatch = phrasesToEmphasize
+      .map((phrase) => ({ phrase, index: message.indexOf(phrase, cursor) }))
+      .filter((match) => match.index >= 0)
+      .sort((a, b) => a.index - b.index)[0];
+
+    if (!nextMatch) {
+      parts.push(message.slice(cursor));
+      break;
+    }
+
+    if (nextMatch.index > cursor) parts.push(message.slice(cursor, nextMatch.index));
+    parts.push(
+      <mark key={`${nextMatch.phrase}-${nextMatch.index}`} className="rounded bg-amber-100/80 px-1 font-semibold text-ink-900 box-decoration-clone">
+        {nextMatch.phrase}
+      </mark>,
+    );
+    cursor = nextMatch.index + nextMatch.phrase.length;
+  }
+
+  return parts;
+}
+
 function App() {
   const [streamNotice, setStreamNotice] = useState<"notStarted" | "linkPending" | null>(null);
   const t = translations.en;
@@ -130,8 +164,8 @@ function App() {
                 <p className="mx-auto mb-2 max-w-2xl font-serif text-lg font-semibold text-ink-900">
                   {t.card.messageTitle}
                 </p>
-                <p className="mx-auto max-w-2xl font-sans text-base text-ink-700 leading-relaxed">
-                  {t.card.message}
+                <p className="invitation-letter mx-auto max-w-2xl text-[15px] leading-[1.9] text-ink-700 sm:text-base">
+                  {formatInvitationMessage(t.card.message)}
                 </p>
 
                 <div className="mx-auto mt-5 grid max-w-2xl grid-cols-2 gap-3 border-t border-gold-400/30 pt-5 text-left text-ink-900">
@@ -140,8 +174,8 @@ function App() {
                     <a className="mt-1 inline-block font-sans text-xs font-medium text-ink-700 underline decoration-gold-600 underline-offset-4 sm:text-sm" href="tel:+918281515625">+91 82815 15625</a>
                   </div>
                   <div className="text-right">
-                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">Baby &amp; Mini</p>
-                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">Nibin &amp; Nimmy</p>
+                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">Baby Varghese and Mini B. Varghese</p>
+                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">Nibin and Nimmy</p>
                     <a className="mt-1 inline-block font-sans text-xs font-medium text-ink-700 underline decoration-gold-600 underline-offset-4 sm:text-sm" href="tel:+919496153248">+91 94961 53248</a>
                   </div>
                 </div>

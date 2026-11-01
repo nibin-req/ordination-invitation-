@@ -88,6 +88,10 @@
   outline-offset: 3px;
 }
 
+.invitation-letter {
+  font-family: "Merienda", "Segoe Print", cursive;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
