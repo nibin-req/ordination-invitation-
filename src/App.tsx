@@ -418,6 +418,34 @@ function App() {
         </div>
       </section>
 
+      {/* ───────────── SOCIAL PROFILES ───────────── */}
+      <section className="bg-ivory-50/75 px-4 py-10 sm:px-6">
+        <div className="mx-auto max-w-3xl text-center">
+          <SectionLabel>CONNECT</SectionLabel>
+          <h3 className="font-serif text-2xl font-semibold text-ink-900">Connect with Noyal</h3>
+          <div className="mx-auto mt-5 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="flex items-center gap-3 rounded-2xl border border-gold-400/30 bg-white/75 px-5 py-4 text-left shadow-sm">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-5 w-5 shrink-0 text-gold-700">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.8" r=".8" fill="currentColor" stroke="none" />
+              </svg>
+              <div>
+                <p className="font-sans text-sm font-semibold text-ink-900">Instagram</p>
+                <p className="font-sans text-xs text-ink-700/75">Profile link coming soon</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 rounded-2xl border border-gold-400/30 bg-white/75 px-5 py-4 text-left shadow-sm">
+              <YouTubeMark className="h-5 w-6 shrink-0" />
+              <div>
+                <p className="font-sans text-sm font-semibold text-ink-900">YouTube</p>
+                <p className="font-sans text-xs text-ink-700/75">Channel link coming soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ───────────── CLOSING MESSAGE ───────────── */}
       <footer className="relative px-4 py-16 sm:px-6 sm:py-24 bg-gradient-to-b from-cream-100/70 to-ivory-200/70">
         <div className="mx-auto max-w-3xl text-center">
