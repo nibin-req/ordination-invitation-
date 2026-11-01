@@ -414,20 +414,6 @@ function App() {
                 </p>
               )}
 
-              <div className="mt-6 flex flex-wrap items-center gap-2" aria-label="Social profile links">
-                <div className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gold-500/45 bg-cream-100/80 px-4 text-sm font-medium text-ink-800" title="Instagram profile link to be added">
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-5 w-5">
-                    <rect x="3" y="3" width="18" height="18" rx="5" />
-                    <circle cx="12" cy="12" r="4" />
-                    <circle cx="17.5" cy="6.8" r=".8" fill="currentColor" stroke="none" />
-                  </svg>
-                  <span>Instagram</span>
-                </div>
-                <div className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gold-500/45 bg-cream-100/80 px-4 text-sm font-medium text-ink-800" title="YouTube channel link to be added">
-                  <YouTubeMark className="h-4 w-6" />
-                  <span>YouTube</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -442,7 +428,21 @@ function App() {
           <p className="mt-3 font-serif text-xl font-semibold text-ink-900">
             {t.blessing.family}
           </p>
-          <div className="mt-12">
+          <div className="mx-auto mt-6 flex w-fit flex-wrap items-center justify-center gap-x-5 gap-y-3 border-y border-gold-400/30 py-4">
+            <a href="https://www.instagram.com/jesus_adzz?mdxt=N2dkZWMydGtxcGRq" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 font-sans text-sm font-medium text-ink-700 transition hover:text-gold-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-600">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-5 w-5">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.8" r=".8" fill="currentColor" stroke="none" />
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/@bethonithe-houseofhyms9954" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 font-sans text-sm font-medium text-ink-700 transition hover:text-gold-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-600">
+              <YouTubeMark className="h-4 w-6" />
+              <span>YouTube</span>
+            </a>
+          </div>
+          <div className="mt-8">
             <div className="mx-auto h-px w-24 bg-gold-400/40" />
             <p className="mt-6 text-[11px] font-sans uppercase tracking-[0.3em] text-ink-700/60">
               {t.blessing.soliDeo}
