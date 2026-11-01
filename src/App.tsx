@@ -413,33 +413,19 @@ function App() {
                     : t.livestream.linkPendingMessage}
                 </p>
               )}
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ───────────── SOCIAL PROFILES ───────────── */}
-      <section className="bg-ivory-50/75 px-4 py-10 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionLabel>CONNECT</SectionLabel>
-          <h3 className="font-serif text-2xl font-semibold text-ink-900">Connect with Noyal</h3>
-          <div className="mx-auto mt-5 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-2">
-            <div className="flex items-center gap-3 rounded-2xl border border-gold-400/30 bg-white/75 px-5 py-4 text-left shadow-sm">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-5 w-5 shrink-0 text-gold-700">
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.8" r=".8" fill="currentColor" stroke="none" />
-              </svg>
-              <div>
-                <p className="font-sans text-sm font-semibold text-ink-900">Instagram</p>
-                <p className="font-sans text-xs text-ink-700/75">Profile link coming soon</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 rounded-2xl border border-gold-400/30 bg-white/75 px-5 py-4 text-left shadow-sm">
-              <YouTubeMark className="h-5 w-6 shrink-0" />
-              <div>
-                <p className="font-sans text-sm font-semibold text-ink-900">YouTube</p>
-                <p className="font-sans text-xs text-ink-700/75">Channel link coming soon</p>
+              <div className="mt-6 flex items-center gap-3" aria-label="Social profile links will be added">
+                <span className="sr-only">Social profiles</span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-500/45 bg-cream-100/80 text-gold-700" title="Instagram profile link to be added">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-5 w-5">
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.8" r=".8" fill="currentColor" stroke="none" />
+                  </svg>
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-500/45 bg-cream-100/80" title="YouTube channel link to be added">
+                  <YouTubeMark className="h-5 w-7" />
+                </div>
               </div>
             </div>
           </div>
