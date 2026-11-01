@@ -74,7 +74,7 @@ function formatInvitationMessage(message: string) {
 
     if (nextMatch.index > cursor) parts.push(message.slice(cursor, nextMatch.index));
     parts.push(
-      <mark key={`${nextMatch.phrase}-${nextMatch.index}`} className="rounded bg-amber-100/80 px-1 font-semibold text-ink-900 box-decoration-clone">
+      <mark key={`${nextMatch.phrase}-${nextMatch.index}`} className="bg-transparent px-0 font-semibold text-gold-700 box-decoration-clone">
         {nextMatch.phrase}
       </mark>,
     );
@@ -174,8 +174,14 @@ function App() {
                     <a className="mt-1 inline-block font-sans text-xs font-medium text-ink-700 underline decoration-gold-600 underline-offset-4 sm:text-sm" href="tel:+918281515625">+91 82815 15625</a>
                   </div>
                   <div className="text-right">
-                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">Baby Varghese and Mini B. Varghese</p>
-                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">Nibin and Nimmy</p>
+                    <p className="font-serif text-[13px] font-semibold leading-snug sm:text-base">
+                      <span className="block">Baby Varghese</span>
+                      <span className="block">Mini B. Varghese</span>
+                    </p>
+                    <p className="mt-1 font-serif text-[13px] font-semibold leading-snug sm:text-base">
+                      <span className="block">Nibin</span>
+                      <span className="block">Nimmy</span>
+                    </p>
                     <a className="mt-1 inline-block font-sans text-xs font-medium text-ink-700 underline decoration-gold-600 underline-offset-4 sm:text-sm" href="tel:+919496153248">+91 94961 53248</a>
                   </div>
                 </div>
