@@ -414,17 +414,18 @@ function App() {
                 </p>
               )}
 
-              <div className="mt-6 flex items-center gap-3" aria-label="Social profile links will be added">
-                <span className="sr-only">Social profiles</span>
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-500/45 bg-cream-100/80 text-gold-700" title="Instagram profile link to be added">
+              <div className="mt-6 flex flex-wrap items-center gap-2" aria-label="Social profile links">
+                <div className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gold-500/45 bg-cream-100/80 px-4 text-sm font-medium text-ink-800" title="Instagram profile link to be added">
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-5 w-5">
                     <rect x="3" y="3" width="18" height="18" rx="5" />
                     <circle cx="12" cy="12" r="4" />
                     <circle cx="17.5" cy="6.8" r=".8" fill="currentColor" stroke="none" />
                   </svg>
+                  <span>Instagram</span>
                 </div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-500/45 bg-cream-100/80" title="YouTube channel link to be added">
-                  <YouTubeMark className="h-5 w-7" />
+                <div className="inline-flex min-h-10 items-center gap-2 rounded-full border border-gold-500/45 bg-cream-100/80 px-4 text-sm font-medium text-ink-800" title="YouTube channel link to be added">
+                  <YouTubeMark className="h-4 w-6" />
+                  <span>YouTube</span>
                 </div>
               </div>
             </div>
