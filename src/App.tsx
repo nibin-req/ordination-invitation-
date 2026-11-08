@@ -428,6 +428,9 @@ function App() {
           <p className="mt-3 font-serif text-xl font-semibold text-ink-900">
             {t.blessing.family}
           </p>
+          <p className="mt-6 font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-ink-700/65">
+            Find us online
+          </p>
           <div className="mx-auto mt-6 flex w-fit flex-wrap items-center justify-center gap-x-5 gap-y-3 border-y border-gold-400/30 py-4">
             <a href="https://www.instagram.com/jesus_adzz?mdxt=N2dkZWMydGtxcGRq" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 font-sans text-sm font-medium text-ink-700 transition hover:text-gold-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-600">
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-5 w-5">
