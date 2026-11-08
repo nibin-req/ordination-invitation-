@@ -99,7 +99,7 @@ export const translations: Record<Language, TranslationSet> = {
       scriptureRef: '{Philippians 3:12}',
       messageTitle: 'Beloved in Jesus Christ',
       message:
-        'With hearts overflowing with love for Jesus Christ, we joyfully announce that Almighty God has chosen our beloved son, Deacon Varghese Thanniyath, to share in the eternal priesthood of our Lord Jesus Christ. He will be ordained on Wednesday, December 30, 2026, at 2:15 PM, at St Joseph\'s Church, Punnakunnathusserry, through the laying on of hands by His Grace Cardinal George Koovakad. We cordially invite you to join us for the Priestly Ordination and First Holy Qurbana, and the Fraternal Meal thereafter.',
+        'With hearts overflowing with love for Jesus Christ, we joyfully announce that Almighty God has chosen our beloved son, Deacon Varghese Thanniyath, to share in the eternal priesthood of our Lord Jesus Christ. He will be ordained on Wednesday, December 30, 2026, at 2:15 PM, at St Joseph\'s Church, Punnakunnathusserry, through the laying on of hands by His Eminence Cardinal Mar George Koovakad. We cordially invite you to join us for the Priestly Ordination and First Holy Qurbana, and the Fraternal Meal thereafter.',
       dateLabel: 'Date',
       dateValue: 'December 30',
       dateSub: '2026 · Wednesday',

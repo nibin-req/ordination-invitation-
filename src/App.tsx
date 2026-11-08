@@ -55,7 +55,7 @@ function formatInvitationMessage(message: string) {
     "Deacon Varghese Thanniyath",
     "Wednesday, December 30, 2026, at 2:15 PM",
     "St Joseph's Church, Punnakunnathusserry",
-    "His Grace Cardinal George Koovakad",
+    "His Eminence Cardinal Mar George Koovakad",
     "Priestly Ordination and First Holy Qurbana",
   ];
   const parts: React.ReactNode[] = [];
